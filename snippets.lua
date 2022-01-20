@@ -85,3 +85,42 @@ part.Touched:Connect(function(other)
     humanoid.Health = 0
   end
 end)
+
+
+-- LOADING A SERVERSCRIPTSERVICE module
+local moduleName = require(game.ServerScriptService.moduleName)
+
+-- HOW TO STOP AUTO REGEN ON A CHARACTERS HEALTH
+-- simply add a script to teh StarterCharacterScripts named 'Health'
+
+-- HOW TO DAMAGE A CHARACTER
+local part = script.Parent
+local debounced = true
+local damageAmount = 5
+
+part.Touched:Connect(function(other)
+  local character = other.Parent
+  local humanoid = character:FindFirstChild("Humanoid")
+  if humanoid and debounced then
+    debounced = False
+    humanoid:TakeDamage(damageAmount)
+    wait(2)
+    debounced = True
+  end
+end)
+
+-- HOW TO HEAL A CHARACTER
+local part = script.Parent
+local debounced = true
+local healAmount = 5
+
+part.Touched:Connect(function(other)
+  local character = other.Parent
+  local humanoid = character:FindFirstChild("Humanoid")
+  if humanoid and debounced then
+    debounced = false
+    humanoid.Heath += healAmount
+    wait(2)
+    debounced = true
+  end
+end)
