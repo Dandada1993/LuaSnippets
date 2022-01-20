@@ -124,3 +124,8 @@ part.Touched:Connect(function(other)
     debounced = true
   end
 end)
+
+-- CHARACTER HEALTH CHANGED EVENT
+character.Humanoid.HealthChanged:Connect(function()
+  -- do something
+end)
