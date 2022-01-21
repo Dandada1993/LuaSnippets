@@ -47,7 +47,7 @@ for _, taggedPart in pairs(taggedParts) do
 	
 	taggedPart.Touched:Connect(function(hit)
 		local character = hit.Parent
-		local humanoid = character:FindFirstChild("Humanoid")
+		local humanoid = character:FindFirstChildWhichIsA("Humanoid")
 	
 		if humanoid and debounced then
 			debounced = False
@@ -77,7 +77,7 @@ local debounced = true
 
 part.Touched:Connect(function(other)
   local character = other.Parent
-  local humanoid = character:FindFirstChild("Humanoid")
+  local humanoid = character:FindFirstChildWhichIsA("Humanoid")
   
   if humanoid and debounced then
     debounced = false
@@ -100,7 +100,7 @@ local damageAmount = 5
 
 part.Touched:Connect(function(other)
   local character = other.Parent
-  local humanoid = character:FindFirstChild("Humanoid")
+  local humanoid = character:FindFirstChildWhichIsA("Humanoid")
   if humanoid and debounced then
     debounced = False
     humanoid:TakeDamage(damageAmount)
@@ -116,7 +116,7 @@ local healAmount = 5
 
 part.Touched:Connect(function(other)
   local character = other.Parent
-  local humanoid = character:FindFirstChild("Humanoid")
+  local humanoid = character:FindFirstChildWhichIsA("Humanoid")
   if humanoid and debounced then
     debounced = false
     humanoid.Heath += healAmount
