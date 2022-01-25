@@ -166,14 +166,31 @@ end)
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local remoteFunction = ReplicatedStorage:FindFirstChild("remoteFunction")
 
-local answer = removeEvent.
+local answer = removeFunction:InvokeServer(...)
 
 -- server (script is ServerScriptService)
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local remoteEvent = ReplicatedStorage:FindFirstChild("remoteEvent")
+local remoteFunction = ReplicatedStorage:FindFirstChild("remoteFunction")
 
-removeEvent.OnServerEvent:Connect(function(player) 
+removeFunction.OnServerInvoke = ... -- name of some function
 
+-- CREATING A TRAIL
+-- ADD A TRAIL TO SERVERSTORAGE
+
+local ServerStorage = game:GetService("ServerStorage")
+local trail = ServerStorage:FindFirstChild("Trail")
+local Players = game:GetService("Players")
+
+Players.PlayerAdded:Connect(function(player)
+  player.CharacterAdded:Connect(function(character)
+    local trailCopy = trail:Clone()
+    local attachment0 = Instance.New("Attachment", character.Head)
+    attachment0.Name = "attachment0"
+    local attachment1 = Instance.New("Attachment", character.HumanoidRootPart)
+    attachment1.Name = "attachment1"
+    trailCopy.Attachment0 = attachment0
+    trailCopy.Attachment1 = attachment1
+    trailCopy.Parent = character -- tutor had character.Head but I am not sure if that's necessary
+    trailCopy.Enabled = true
+  end)
 end)
-
-
