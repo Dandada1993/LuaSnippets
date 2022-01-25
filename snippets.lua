@@ -129,3 +129,51 @@ end)
 character.Humanoid.HealthChanged:Connect(function()
   -- do something
 end)
+
+-- CHANGE SHIRT FOR A CHARACTER
+character.Shirt.ShirtTemplate = ...
+
+-- CHANGE PANTS FOR A CHARACTER
+character.Pants.PantsTemplate = ...
+
+-- GET CURRENT SHIRT AND PANTS FOR A CHARACTER
+local shirt = character.FindFirstChild("Shirt")
+local pants = character.FindFirstChild("Pants")
+
+-- REMOVE EVENTS are used to send a message between the client (localScript) and the server
+-- NO INFORMATION CAN BE SENT BACK TO THE CLIENT
+-- FIRST CREATE a REMOTE EVENT in REPLICATEDSTORAGE (for example removeEvent)
+
+-- client (localScript)
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local remoteEvent = ReplicatedStorage:FindFirstChild("remoteEvent")
+
+removeEvent:FireServer()
+
+-- server (script is ServerScriptService)
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local remoteEvent = ReplicatedStorage:FindFirstChild("remoteEvent")
+
+removeEvent.OnServerEvent:Connect(function(player) 
+
+end)
+
+-- REMOVE FUNCTIONS are used to send a message between the client (localScript) and the server
+-- INFORMATION CAN BE RETURNED TO THE CLIENT
+-- FIRST CREATE a REMOTE FUNCTION in REPLICATEDSTORAGE (for example removeFunction)
+
+-- client (localScript)
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local remoteFunction = ReplicatedStorage:FindFirstChild("remoteFunction")
+
+local answer = removeEvent.
+
+-- server (script is ServerScriptService)
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local remoteEvent = ReplicatedStorage:FindFirstChild("remoteEvent")
+
+removeEvent.OnServerEvent:Connect(function(player) 
+
+end)
+
+
