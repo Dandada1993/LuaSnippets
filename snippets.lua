@@ -194,3 +194,29 @@ Players.PlayerAdded:Connect(function(player)
     trailCopy.Enabled = true
   end)
 end)
+
+-- GET A PET (PART) to follow
+-- add a part with a StringValue called Owner, the script is attached ot the part
+local pet = script.Parent
+pet.CanCollide = false
+pet.Anchored = false
+
+local petBodyPosition = Instance.new("BodyPosition", pet)
+local petBodyGyro = Instance.new("BodyGyro", pet)
+petBodyGyro.MaxTorque = Vector3.new(900000, 900000, 900000)
+local owner = pet.Owner.Value -- owner is a StringValue added to the pet/part
+local followPosition = Vector3.new(2, 2, 0)
+
+while wait(1) do
+  local ownerObj = workspace:WaitForChild(owner)
+  local player = game:GetService("Players"):FindFirstChild(ownerObj)
+  local ownerPos = ownerObj.HumanoidRootPart.Position
+  local stopAt = ((ownerPos - pet.Position).magnitude - 1) * 1000
+  petPos.P = stopAt
+  petBodyPosition.Position = ownerPos + followPosition
+  petBodyGyro.CFrame = ownerObj.HumanoidRootPart.CFrame
+end
+
+-- Waiting for a character in a local script
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
