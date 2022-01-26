@@ -201,7 +201,9 @@ local pet = script.Parent
 pet.CanCollide = false
 pet.Anchored = false
 
+-- BodyPosition has been superseded by AlignPosition
 local petBodyPosition = Instance.new("BodyPosition", pet)
+-- BodyGyro has been superseded by AngularOrientation 
 local petBodyGyro = Instance.new("BodyGyro", pet)
 petBodyGyro.MaxTorque = Vector3.new(900000, 900000, 900000)
 local owner = pet.Owner.Value -- owner is a StringValue added to the pet/part
