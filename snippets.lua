@@ -276,3 +276,8 @@ Players.PlayerAdded:Connect(onPlayerAdded)
 -- USE DEBRIS SERVICE TO REMOVE GAME OBJECT NO LONGER REQUIRED
 local Debris = game:GetService("Debris")
 Debris:AddItem(projectile, 3)
+
+-- CONVEYOR BELT
+-- Make sure the part is anchored, add a script with the following
+local part = script.Parent
+part.Velocity = Vector3.new(20, 0, 0) -- gives a velocity in the X direction
