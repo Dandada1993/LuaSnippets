@@ -272,3 +272,7 @@ local function onPlayerAdded(player)
 end
  
 Players.PlayerAdded:Connect(onPlayerAdded)
+
+-- USE DEBRIS SERVICE TO REMOVE GAME OBJECT NO LONGER REQUIRED
+local Debris = game:GetService("Debris")
+Debris:AddItem(projectile, 3)
