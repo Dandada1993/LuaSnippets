@@ -1,0 +1,16 @@
+This file contains Roblox textures 
+
+Laser
+rbxassetid://6060542252
+rbxassetid://6060542158
+rbxassetid://6060542021
+
+Smoke textures
+rbxassetid://7731347137
+rbxassetid://3845808160
+
+Waterfall
+rbxassetid://1190623231
+
+Forcefield
+rbxassetid://6073438558
