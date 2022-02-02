@@ -20,7 +20,7 @@ end)
 
 -- GET PLAYER FROM CHARACTER v1
 local Players = game:GetService("Players") -- game.Players
-local player = Players.FindFirstChild(character.Name)
+local player = Players:FindFirstChild(character.Name)
 
 -- GET PLAYER FROM CHARACTER v2
 local Players = game:GetService("Players")
@@ -43,14 +43,14 @@ local taggedParts = CollectionService.GetTagged("steps")
 
 for _, taggedPart in pairs(taggedParts) do
 	-- local tile = script.Parent
-	local debounced = True -- used to limit the number of times a hit is recorded
+	local debounced = true -- used to limit the number of times a hit is recorded
 	
 	taggedPart.Touched:Connect(function(hit)
 		local character = hit.Parent
 		local humanoid = character:FindFirstChildWhichIsA("Humanoid")
 	
 		if humanoid and debounced then
-			debounced = False
+			debounced = false
 			print('Part was touched')
 		end
 		wait(2)
@@ -190,7 +190,7 @@ Players.PlayerAdded:Connect(function(player)
     attachment1.Name = "attachment1"
     trailCopy.Attachment0 = attachment0
     trailCopy.Attachment1 = attachment1
-    trailCopy.Parent = character -- tutor had character.Head but I am not sure if that's necessary
+    trailCopy.Parent = character.Head
     trailCopy.Enabled = true
   end)
 end)
@@ -288,7 +288,7 @@ part.Velocity = Vector3.new(20, 0, 0) -- gives a velocity in the X direction
 local UserInputService = game:GetService("UserInputService")
 local player = game:GetService("Players").LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
-local humanoid = character.FindFirstChildWhichIsA("Humaonoid")
+local humanoid = character:FindFirstChildWhichIsA("Humaonoid")
 
 local FAST_WALK = 32
 local NORMAL_WALK = 16
