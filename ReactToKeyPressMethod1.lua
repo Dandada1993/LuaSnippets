@@ -1,6 +1,3 @@
--- The downside to using the ContextActionService is that if the user type an 'm'
--- in the Chat a marker would be dropped
-
 local ContextActionService = game:GetService("ContextActionService")
 
 local function DropMarker()
