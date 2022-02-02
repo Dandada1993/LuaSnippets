@@ -1,4 +1,4 @@
-This file contains Roblox textures 
+TEXTURES
 
 Laser
 rbxassetid://6060542252
@@ -14,3 +14,12 @@ rbxassetid://1190623231
 
 Forcefield
 rbxassetid://6073438558
+
+Electric sparkle
+rbxassetid://6101261905
+
+SOUNDS
+
+Creepy Organ/Dungeon: rbxassetid://1843463175
+Upbeat Electronica: rbxassetid://1837849285
+Grandiose Fantasy: rbxassetid://1848183670
