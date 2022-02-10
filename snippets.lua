@@ -291,3 +291,16 @@ humanoid:AddAsserory(accessory) -- accessory is a model e.g. a helmet
 
 -- DAMAGE A PLAYER
 humanoid:TakeDamage(damage) -- damage is a number
+
+-- GETPROPERTYCHANGEDSIGNAL
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local status = ReplicatedStorage:FindFirstChild("status")
+
+status:GetPropertyChangedSignal("Value"):Connection(function() 
+  -- do something
+end)
+
+-- WAYS TO EXECUTE CODE ON A NEW THREAD
+spawn()
+delay()
+coroutine.wrap()
