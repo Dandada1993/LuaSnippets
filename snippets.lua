@@ -281,3 +281,13 @@ Debris:AddItem(projectile, 3)
 -- Make sure the part is anchored, add a script with the following
 local part = script.Parent
 part.Velocity = Vector3.new(20, 0, 0) -- gives a velocity in the X direction
+
+-- DISABLE DEFAULT LEADERSTATS
+-- place the following into a LocalScript in StarterPlayerScripts
+game.StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.PlayerList, false)
+
+-- ADD AN ACCESSORY TO A PLAYER
+humanoid:AddAsserory(accessory) -- accessory is a model e.g. a helmet
+
+-- DAMAGE A PLAYER
+humanoid:TakeDamage(damage) -- damage is a number
