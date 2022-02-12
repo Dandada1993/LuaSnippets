@@ -304,3 +304,7 @@ end)
 spawn()
 delay()
 coroutine.wrap()
+
+-- TELEPORT A PLAYER WITHIN A PLACE
+-- part is the part you want to teleport the player to
+character.HumanoidRootPart.CFrame = part.CFrame + Vector3.new(0, 5, 0) -- the vector is to raise the player up
