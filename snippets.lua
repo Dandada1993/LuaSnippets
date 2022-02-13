@@ -308,3 +308,7 @@ coroutine.wrap()
 -- TELEPORT A PLAYER WITHIN A PLACE
 -- part is the part you want to teleport the player to
 character.HumanoidRootPart.CFrame = part.CFrame + Vector3.new(0, 5, 0) -- the vector is to raise the player up
+-- Alternatively, you can try something like this. This will teleport with the same orientation as the part 
+-- you're teleporting to, and always on top regardless of part/character height. 
+-- Just make sure the part has it's top face up or it won't work right.
+character.HumanoidRootPart.CFrame = part.CFrame * CFrame.new(0, part.Size.Y / 2 + character:GetExtentsSize().Y, 0)
