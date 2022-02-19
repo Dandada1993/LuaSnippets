@@ -43,18 +43,18 @@ local taggedParts = CollectionService.GetTagged("steps")
 
 for _, taggedPart in pairs(taggedParts) do
 	-- local tile = script.Parent
-	local debounced = true -- used to limit the number of times a hit is recorded
+	local isTouched = false -- used to limit the number of times a hit is recorded
 	
 	taggedPart.Touched:Connect(function(hit)
 		local character = hit.Parent
 		local humanoid = character:FindFirstChildWhichIsA("Humanoid")
 	
-		if humanoid and debounced then
-			debounced = false
+		if humanoid and not isTouched then
+			isTouched = true
 			print('Part was touched')
+      wait(2)
+		  isTouched = false
 		end
-		wait(2)
-		debounced = True
 	end)
 end
 
