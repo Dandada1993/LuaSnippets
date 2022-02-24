@@ -39,7 +39,7 @@ end
 
 -- SHARE A SCRIPT AMOUNT PARTS/MODELS USING TAGGING (Plugin Tag Editor needed)
 local CollectionService = game:GetService("CollectionService")
-local taggedParts = CollectionService.GetTagged("steps")
+local taggedParts = CollectionService:GetTagged("steps")
 
 for _, taggedPart in pairs(taggedParts) do
 	-- local tile = script.Parent
