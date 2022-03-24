@@ -18,7 +18,7 @@ local function DropMarker()
 end
 
 local function CreateMarker(actionName, inputState, inputObject)
-  if inputState == Enum.UserInputService.Begin then
+  if inputState == Enum.UserInputState.Begin then
     DropMarker()
   end
 end
