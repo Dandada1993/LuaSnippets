@@ -1,0 +1,22 @@
+local door = game.Workspace.Door
+local doorOpener = script.Parent
+
+doorOpener.MouseClick:Connect(function()
+	local doorHandle = door.DoorHandle
+	local attachment = Instance.new("Attachment")
+	attachment.Parent = doorHandle
+	
+	local force = Instance.new("VectorForce")
+	force.Parent = game.Workspace -- without a parent the force doesn't work
+	force.Attachment0 = attachment
+	force.ApplyAtCenterOfMass = false
+	-- this applies the force relative to world coordinates
+	force.RelativeTo = Enum.ActuatorRelativeTo.World
+	force.Force = Vector3.new(90, 0, 0)
+	-- use the below is the force.RelativeTo is commented out
+	-- as the part has been rotated
+	--force.Force = Vector3.new(0, 90, 0)
+	force.Enabled = true
+	wait(0.4)
+	force.Enabled = false
+end)
