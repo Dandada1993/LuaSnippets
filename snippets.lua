@@ -312,3 +312,30 @@ character.HumanoidRootPart.CFrame = part.CFrame + Vector3.new(0, 5, 0) -- the ve
 -- you're teleporting to, and always on top regardless of part/character height. 
 -- Just make sure the part has it's top face up or it won't work right.
 character.HumanoidRootPart.CFrame = part.CFrame * CFrame.new(0, part.Size.Y / 2 + character:GetExtentsSize().Y, 0)
+
+-- PLAYING ANIMATION DIRECTLY IN LOCAL SCRIPT
+local Players = game:GetService("Players")
+ 
+local player = Players.LocalPlayer
+local character = player.Character
+if not character or not character.Parent then
+	character = player.CharacterAdded:Wait()
+end
+local humanoid = character:WaitForChild("Humanoid")
+local animator = humanoid:WaitForChild("Animator")
+ 
+-- Create new "Animation" instance
+local kickAnimation = Instance.new("Animation")
+-- Set its "AnimationId" to the corresponding animation asset ID
+kickAnimation.AnimationId = "rbxassetid://2515090838"
+ 
+-- Load animation onto the animator
+local kickAnimationTrack = animator:LoadAnimation(kickAnimation)
+ 
+-- Play animation track
+kickAnimationTrack:Play()
+ 
+-- If a named event was defined for the animation, connect it to "GetMarkerReachedSignal()"
+kickAnimationTrack:GetMarkerReachedSignal("KickEnd"):Connect(function(paramString)
+	print(paramString)
+end)
