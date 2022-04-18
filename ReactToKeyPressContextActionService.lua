@@ -1,4 +1,7 @@
+-- LocalScript
 local ContextActionService = game:GetService("ContextActionService")
+
+local ACTION_NAME = "mpressed"
 
 local function DropMarker()
   local player = game:GetService("Players").LocalPlayer
@@ -18,9 +21,9 @@ local function DropMarker()
 end
 
 local function CreateMarker(actionName, inputState, inputObject)
-  if inputState == Enum.UserInputState.Begin then
+  if actionName = ACTION_NAME and inputState == Enum.UserInputState.Begin then
     DropMarker()
   end
 end
 
-ContextActionService:BindAction("mpressed", CreateMarker, true, Enum.KeyCode.M)
+ContextActionService:BindAction(ACTION_NAME, CreateMarker, true, Enum.KeyCode.M)
