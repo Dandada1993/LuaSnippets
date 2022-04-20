@@ -21,7 +21,7 @@ local function DropMarker()
 end
 
 local function CreateMarker(actionName, inputState, inputObject)
-  if actionName = ACTION_NAME and inputState == Enum.UserInputState.Begin then
+  if actionName == ACTION_NAME and inputState == Enum.UserInputState.Begin then
     DropMarker()
   end
 end
