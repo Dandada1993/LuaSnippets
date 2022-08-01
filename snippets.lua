@@ -286,6 +286,12 @@ part.Velocity = Vector3.new(20, 0, 0) -- gives a velocity in the X direction
 -- place the following into a LocalScript in StarterPlayerScripts
 game.StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.PlayerList, false)
 
+-- Other default Gui items
+Enum.CoreGuiType.Health
+Enum.CoreGuiType.Backpack
+Enum.CoreGuiType.Chat
+Enum.CoreGuiType.All
+
 -- ADD AN ACCESSORY TO A PLAYER
 humanoid:AddAsserory(accessory) -- accessory is a model e.g. a helmet
 
