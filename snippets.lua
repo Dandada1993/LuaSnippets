@@ -33,6 +33,9 @@ local gold = leaderstats:FindFirstChild("Gold")
 -- GET LEADERSTATS FROM PLAYER
 local leaderstats = player.leaderstats
 local gold = leaderstats and leaderstats:FindFirstChild("Gold")
+
+-- TWEENING A GUI
+bar:TweenSize(UDim2.new(0, oxygenLevel/MAXOXYGENLEVEL * 146, 0, 10))
 if gold then
 	gold.Value += 10
 end
