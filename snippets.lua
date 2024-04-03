@@ -377,3 +377,7 @@ local character = player.Character
 if not character or not character.Parent then
     character = player.CharacterAdded:wait()
 end
+
+-- ROTATE A PART ABOUT IT's CENTER
+local part = script.Parent
+part.CFrame *= CFrame.Angles(0, math.rad(5), 0)
