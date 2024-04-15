@@ -381,3 +381,26 @@ end
 -- ROTATE A PART ABOUT IT's CENTER
 local part = script.Parent
 part.CFrame *= CFrame.Angles(0, math.rad(5), 0)
+
+-- MOVING PLATFORM
+local TweenService = game:GetService("TweenService")
+local RunService = game:GetService("RunService")
+
+local part = script.Parent
+local tweenInfo = TweenInfo.new(2, Enum.EasingStyle.Cubic, Enum.EasingDirection.InOut, -1, true)
+
+local tween = TweenService:Create(part, tweenInfo, {
+	CFrame = part.CFrame * CFrame.new(0, 0, -10)
+})
+
+tween:Play()
+
+local lastPosition = part.Position
+
+RunService.Stepped:Connect(function(_, dt)
+	local currentPosition = part.Position
+	local deltaPosition = currentPosition - lastPosition
+	local velocity = deltaPosition / dt
+	part.AssemblyLinearVelocity = velocity
+	lastPosition = currentPosition
+end)
