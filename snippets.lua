@@ -63,12 +63,14 @@ for _, taggedPart in pairs(taggedParts) do
 end
 
 -- DAY/NIGHT CYCLE
-local startMinutes = 12 * 60
+local RunService = game:GetService("RunService")
 
-while wait(0.01) do
-	game.Lighting:SetMinutesAfterMidnight(startMinutes)
-	startMinutes += 1
-end
+local currentTime = 14.5 * 60 -- 24 hour clock, .5 is 30 minutes, 2:30PM
+game.Lighting:SetMinutesAfterMidnight(currentTime)
+RunService.Heartbeat:Connect(function(dt)
+	currentTime += 5 * dt
+	game.Lighting:SetMinutesAfterMidnight(currentTime)
+end)
 
 -- DIFFERENTIATE A HUMANOID AS PLAYERS VS NPC
 local Players = game:GetService("Players")
