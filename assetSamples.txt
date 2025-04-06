@@ -18,6 +18,9 @@ rbxassetid://6073438558
 Electric sparkle
 rbxassetid://6101261905
 
+Chain link fence
+rbxassetid://2908007
+
 SOUNDS
 
 Creepy Organ/Dungeon: rbxassetid://1843463175
